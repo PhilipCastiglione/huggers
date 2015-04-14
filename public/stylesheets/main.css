@@ -28,27 +28,27 @@ header * {
 }
 
 /*LIST*/
-main {
+main#list {
   height: 100%;
 }
 
-section {
+main#list section {
   height: 30%;
 }
 
-section div {
+main#list section div {
   height: 100%;
   display: inline-block;
   width: 30%;
   margin-right: 3%;
 }
 
-section div img {
+main#list section div img {
   max-height: 100%;
   max-width: 100%;
 }
 
-section article {
+main#list section article {
   vertical-align: top;
   height: 100%;
   width: 65%;

@@ -1,3 +1,45 @@
-<main>
-  
+<main id="public-profile">
+  <section>
+    <div id="pictures">
+      <!-- add functionality to click and see the other images with js -->
+    </div>
+    <article id="bio">
+      
+    </article>
+  </section>
+  <section>
+    <article id="details">
+      
+    </article>
+  </section>
 </main>
+
+<script>
+
+  renderProfilePic(<%=@user.profile_photo_id%>,'#pictures');
+
+  // OK SO: Should I use AJAX or just pass that single user object down through ruby;
+  // kind of seems like I have to anyway so... what's the AJAX benefit here? Since it's small.
+  // and I will have to loop through the whole user array to just find the one thing I need anyway...
+
+  /*
+  $.ajax({
+
+    url: '/api/users',
+    method: 'get',
+    dataType: 'json'
+
+  }).done(function(users){
+
+    for (var i=0; i<users.length; i++) {
+
+        if (users[i]['id'] === @user.id) {
+          lalala; maybe get just that into an object then use it yaya
+        }
+
+      }
+
+  });
+  */
+
+</script>
