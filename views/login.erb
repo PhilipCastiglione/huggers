@@ -1,0 +1,18 @@
+<% if @retained_content.empty? %>
+  <% ['email'].each do |attribute| %>
+    <% @retained_content[attribute] = "" %>
+  <% end %>  
+<% end %>
+
+<form action="/session" method="post">
+  <p>
+    <label for="">email address: </label>
+    <input type="text" name="email" value="<%= @retained_content["email"] %>">
+  </p>
+  <p>
+    <label for="">password: </label>
+    <input type="password" name="password">
+  </p>
+  <button>login</button>
+
+</form>

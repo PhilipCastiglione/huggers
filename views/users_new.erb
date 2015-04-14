@@ -1,0 +1,56 @@
+<h3>Join Huggers!</h3>
+
+<% if @retained_content.empty? %>
+  <% ['email','first_name','middle_name','last_name','dob','gender','relationship','partner_user_id','nationality','location'].each do |attribute| %>
+    <% @retained_content[attribute] = "" %>
+  <% end %>  
+<% end %>
+
+<form action="/users" method="post">
+  <p>
+    <label for="">Email: </label>
+    <input type="text" name="email" value="<%= @retained_content["email"] %>">
+  </p>
+  <p>
+    <label for="">Password: </label>
+    <input type="password" name="password">
+  </p>
+  <p>
+    <label for="">First name: </label>
+    <input type="text" name="first_name" value="<%= @retained_content["first_name"] %>">
+  </p>
+  <p>
+    <label for="">Middle name: </label>
+    <input type="text" name="middle_name" value="<%= @retained_content["middle_name"] %>">
+  </p>
+  <p>
+    <label for="">Last name: </label>
+    <input type="text" name="last_name" value="<%= @retained_content["last_name"] %>">
+  </p>
+  <p>
+    <label for="">Date of birth: </label>
+    <input type="text" name="dob" value="<%= @retained_content["dob"] %>">
+  </p>
+  <p>
+    <label for="">Gender: </label>
+    <input type="text" name="gender" value="<%= @retained_content["gender"] %>">
+  </p>
+  <p>
+    <label for="">Relationship status: </label>
+    <input type="text" name="relationship" value="<%= @retained_content["relationship"] %>">
+  </p>
+  <p>
+    <label for="">Partner id: </label>
+    <input type="text" name="partner_user_id" value="<%= @retained_content["partner_user_id"] %>">
+  </p>
+  <p>
+    <label for="">Nationality: </label>
+    <input type="text" name="nationality" value="<%= @retained_content["nationality"] %>">
+  </p>
+  <p>
+    <label for="">Location: </label>
+    <input type="text" name="location" value="<%= @retained_content["location"] %>">
+  </p>
+  <button>Create</button>
+
+</form>

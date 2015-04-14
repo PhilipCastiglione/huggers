@@ -1,0 +1,56 @@
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+}
+
+/*HEADER*/
+header {
+  position: fixed;
+  height: 15%;
+  width: 100%;
+  background: pink;
+}
+
+header * {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+  padding: 0;
+}
+
+.header-separator {
+  min-height: 15%;
+  width: 100%;
+}
+
+/*LIST*/
+main {
+  height: 100%;
+}
+
+section {
+  height: 30%;
+}
+
+section div {
+  height: 100%;
+  display: inline-block;
+  width: 30%;
+  margin-right: 3%;
+}
+
+section div img {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+section article {
+  vertical-align: top;
+  height: 100%;
+  width: 65%;
+  display: inline-block;
+}

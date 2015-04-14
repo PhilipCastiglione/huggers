@@ -1,0 +1,39 @@
+<main>
+</main>
+
+<script>
+
+  $.ajax({
+
+    url: '/api/users',
+    method: 'get',
+    dataType: 'json'
+
+  }).done(function(users){
+
+    for (var i=0; i<users.length; i++) {
+
+      $('main').append('<hr>');
+
+      var $section = $('<section>');
+      var $div = $('<div>');
+      
+      $section.append($div);
+      renderProfilePic(users[i].profile_photo_id,$div);
+      
+      var $article = $('<article>');
+      var firstName = users[i]['first_name'];
+      var age = SQLDobToAge(users[i]['dob']);
+      $article.append($('<h3>').html(firstName + ', ' + age));
+
+      var lorem = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore eveniet sit mollitia repellendus voluptate facilis rem suscipit, et quod, commodi. Quisquam quibusdam delectus mollitia, nisi doloremque explicabo aspernatur, esse rerum?";
+      $article.append($('<p>').html(lorem)); // change to description
+      
+      $section.append($article);
+      $('main').append($section);
+    }
+
+
+  });
+
+</script>
