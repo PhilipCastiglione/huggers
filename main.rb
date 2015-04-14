@@ -28,7 +28,11 @@ end
 
 # huggers
 get '/' do
-  erb :index
+  if current_user.nil?
+    erb :index
+  else
+    redirect to "/users/#{current_user.id}"
+  end
 end
 
 get '/session/new' do
@@ -69,28 +73,23 @@ post '/users' do
   end
 end
 
-get '/community' do
-end
-
-get '/games' do
-end
-
-get '/about-huggers' do
+get '/huggers/about' do
+  erb :about
 end
 
 # MM/Relationship
 get '/users/:user_id' do
   
-  @user = User.find_by(id: :user_id)
-  binding.pry
+  @user = User.find_by(id: params[:user_id])
   if @user.nil? 
     @error = "User not found!"
     erb :error
-  elsif current_user == :user_id
+  elsif current_user.id.to_s == params[:user_id]
     erb :private_profile
   else
     erb :public_profile
   end
+
 end
 
 get '/users/:user_id/community' do
