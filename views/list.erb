@@ -30,11 +30,13 @@
       var age = SQLDobToAge(users[i]['dob']);
       $article.append($('<h3>').html(firstName + ', ' + age));
 
-      var lorem = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore eveniet sit mollitia repellendus voluptate facilis rem suscipit, et quod, commodi. Quisquam quibusdam delectus mollitia, nisi doloremque explicabo aspernatur, esse rerum?";
+      var lorem = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore eveniet sit mollitia repellendus.";
       $article.append($('<p>').html(lorem)); // change to description
       
       $section.append($article);
-      $('main').append($section);
+      $a = $('<a>').attr('href',"/users/"+users[i]['id']).append($section);
+      $('main').append($a);
+
     }
 
   });

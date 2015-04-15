@@ -4,15 +4,15 @@
   <% end %>  
 <% end %>
 
-<form action="/session" method="post">
-  <p>
-    <label for="">email address: </label>
-    <input type="text" name="email" value="<%= @retained_content["email"] %>">
-  </p>
-  <p>
-    <label for="">password: </label>
-    <input type="password" name="password">
-  </p>
-  <button>login</button>
+<main id="login">
+  <form action="/session" method="post">
+    <p>
+      <input type="text" name="email" placeholder="email address" value="<%= @retained_content["email"] %>">
+    </p>
+    <p>
+      <input type="password" placeholder="password" name="password">
+    </p>
+    <button>login</button>
 
-</form>
+  </form>
+</main>

@@ -1,3 +1,7 @@
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+
 html {
   height: 100%;
 }
@@ -7,42 +11,65 @@ body {
   margin: 0;
 }
 
-.hidden {
-  display: none;
-}
-
 /*HEADER*/
 header {
   position: fixed;
   height: 15%;
   width: 100%;
-  background: pink;
+  background: rgb(255,132,188);
+  border-bottom: 5px solid rgb(215,92,148);
 }
 
-header * {
+header div.header-wrapper {
+  height: 80%;
+  width: 95%;
+  margin: 2% auto;
+}
+
+header div.header-wrapper * {
   display: inline-block;
-  vertical-align: middle;
   margin: 0;
   padding: 0;
+  vertical-align: middle;
+}
+
+header h1 {
+  font-family: 'Lobster Two', cursive;
+  font-size: 3em;
+  color: rgb(144,96,245);
+  text-decoration: underline;
 }
 
 header img#menu-toggle {
-  height: 80%;
+  max-height: 100%;
+  cursor: pointer;
+  margin: 0%;
+  margin-right: 5%;
 }
 
-.header-separator {
-  min-height: 15%;
+header a {
+  height: 100%;
+}
+
+header a img#hearts {
+  max-height: 100%;
+  margin: 0%;
+  margin-left: 5%;
+}
+
+div.header-separator {
+  min-height: 15.5%;
   width: 100%;
 }
 
 /*MENU*/
 nav#menu {
+  display: none;
   position: fixed;
   top: 15%;
   left: 0;
   height: 85%;
   width: 80%;
-  background: grey;
 }
 
 nav#menu ul {
@@ -54,54 +81,115 @@ nav#menu ul {
 nav#menu li {
   display: block;
   list-style: none;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
+  border: 2px solid rgb(37,112,170);
+  border-bottom: none;
+  background: rgb(67,142,200);
   height: 13%;
   width: 90%;
   padding-left: 10%;
 }
 
 nav#menu li a {
+  font-family: 'Lobster Two', cursive;
+  color: rgb(0,75,133);
   display: block;
   height: 100%;
   width: 100%;
+  text-decoration: none;
+  font-size: 2em;
+  line-height: 2em;
+}
+
+nav#menu li a#copyright {
+  font-size: .8em;
 }
 
 nav#menu li img {
-  max-height: 80%;
+  max-height: 45%;
+}
+
+/*SPLASH*/
+main#splash {
+  height: 85%;
+  background: rgb(255,225,255);
+  text-align: center;
+}
+
+main#splash h1 {
+  margin: 0;
+  padding-top: 35%;
+}
+
+main#splash h3 {
+  margin: 3%;
+  padding-bottom: 10%;
+}
+
+main#splash a {
+  margin: 1em;
+  padding: .5em;
+  font-family: 'Lobster Two', cursive;
+  font-size: 2em;
+  border: 3px solid rgb(144,96,245);
+}
+
+/*LOGIN*/
+main#login {
+  height: 85%;
+  background: rgb(255,225,255);
+  text-align: center;
 }
 
 /*LIST*/
+
 main#list {
   height: 100%;
 }
 
-main#list section {
-  height: 30%;
+main#list hr {
+  margin: 0;
 }
 
-main#list section div {
+main#list a {
+  text-decoration: none;
+  color: black;
+}
+
+main#list a section {
+  height: 30%;
+  background: rgb(255,225,255);
+}
+
+main#list a section div {
   height: 100%;
   display: inline-block;
-  width: 30%;
+  width: 35%;
   margin-right: 3%;
+  text-align: center;
 }
 
-main#list section div img {
+main#list a section div img {
   max-height: 100%;
   max-width: 100%;
 }
 
-main#list section article {
+main#list a section article {
   vertical-align: top;
   height: 100%;
-  width: 65%;
+  width: 60%;
   display: inline-block;
+}
+
+main#list a section article h3 {
+  font-family: 'Lobster Two', cursive;
+  font-size: 2em;
+  margin: 0;
 }
 
 /*PUBLIC PROFILE*/
 main#public-profile {
   height: 100%;
+  background: rgb(255,225,255);
 }
 
 main#public-profile section#top {

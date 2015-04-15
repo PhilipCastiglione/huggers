@@ -38,10 +38,13 @@ def validate_current_user(user_id)
   end
 end
 
-
 # db
 after do
   ActiveRecord::Base.connection.close
+end
+
+get '/fonttest' do
+  erb :fonttest
 end
 
 # huggers
