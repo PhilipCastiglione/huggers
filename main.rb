@@ -2,8 +2,13 @@ require 'sinatra'
 require 'sinatra/contrib/all'
 require 'pg' #is this necessary with active_record?
 require 'pry'
-require 'httparty' #only necessary for external API access
 require 'bcrypt'
+require 'json' #is this necessary?
+
+require 'httparty' #only necessary for external API access
+  # example for external hosting of API
+  # url = '/api/users'
+  # @users_data = HTTParty.get(URI.escape(url))
 
 require_relative 'config'
 require_relative 'user'
@@ -20,6 +25,19 @@ helpers do
     User.find_by(id: session[:user_id])
   end
 end
+
+def validate_login
+  if !logged_in?
+    redirect to '/'
+  end
+end
+
+def validate_current_user(user_id)
+  if user_id != current_user.id.to_s
+    redirect to '/'
+  end
+end
+
 
 # db
 after do
@@ -59,7 +77,7 @@ end
 
 get '/users/new' do
   @retained_content = {}
-  erb :users_new
+  erb :new_user
 end
 
 post '/users' do
@@ -74,7 +92,7 @@ post '/users' do
     redirect to "/users/#{user.id}"
   else
     @retained_content = params
-    erb :users_new
+    erb :new_user
   end
 end
 
@@ -88,12 +106,14 @@ get '/users/:user_id' do
   @user = User.find_by(id: params[:user_id])
   
   if @user.nil? #user not present
+
     @error = "User not found!"
     erb :error
+
   else
 
     @partner = User.find_by(id: @user.partner_user_id)
-    
+
     if current_user.nil? #no one logged in
       erb :public_profile
     elsif current_user.id.to_s == params[:user_id] #logged in user = profile user
@@ -107,34 +127,67 @@ get '/users/:user_id' do
 end
 
 get '/users/:user_id/community' do
+  validate_login
+  validate_current_user params[:user_id]
+
+  @user = User.find_by(id: params[:user_id])
+  erb :community
 end
 
 get '/users/:user_id/games' do
+  validate_login
+  validate_current_user params[:user_id]
+
+  @user = User.find_by(id: params[:user_id])
+  erb :games
 end
 
 get '/users/:user_id/settings' do
+  validate_login
+  validate_current_user params[:user_id]
+
+  @user = User.find_by(id: params[:user_id])
+  erb :settings
 end
 
 # MM
 get '/users/:user_id/search' do
+  validate_login
+  validate_current_user params[:user_id]
+
+  @user = User.find_by(id: params[:user_id])
+  erb :search
 end
 
 get '/users/:user_id/list' do
+  validate_login
+  validate_current_user params[:user_id]
 
-  # search criteria
-
-  # for external hosting of API
-  # url = '/api/users'
-  # @users_data = HTTParty.get(URI.escape(url))
+  @criteria = {
+    gender: params[:gender],
+    min_age: params[:min_age],
+    max_age: params[:max_age],
+    location: params[:location]
+  }
   
   erb :list
 end
 
 get '/users/:user_id/flirts' do
+  validate_login
+  validate_current_user params[:user_id]
+
+  @user = User.find_by(id: params[:user_id])
+  erb :flirts
 end
 
 # Relationship
 get '/users/:user_id/us' do
+  validate_login
+  validate_current_user params[:user_id]
+
+  @user = User.find_by(id: params[:user_id])
+  erb :us
 end
 
 # APIs

@@ -25,22 +25,39 @@ var SQLDobToAge = function(SQLDob) {
 
 var renderProfilePic = function(profile_photo_id, HTMLObject) {
     
-    $.ajax({
+  $.ajax({
 
-      url: '/api/profile_photos',
-      method: 'get',
-      dataType: 'json'
+    url: '/api/profile_photos',
+    method: 'get',
+    dataType: 'json'
 
-    }).done(function(data) {
+  }).done(function(data) {
 
-      for (var i=0; i<data.length; i++) {
-
-        if (data[i]['id'] === profile_photo_id) {
-          $(HTMLObject).html("<img src=" + data[i]['link'] + " alt='profile picture'>");
-          break;
-        }
-
+    for (var i=0; i<data.length; i++) {
+      if (data[i]['id'] === profile_photo_id) {
+        $(HTMLObject).html("<img src=" + data[i]['link'] + " alt='profile picture'>");
+        break;
       }
+    }
 
-    });
+  });
+};
+
+var includeUser = function(criteria, user) {
+
+  var age = SQLDobToAge(user['dob']);
+
+  if ((criteria["gender"].toLowerCase() === user['gender'].toLowerCase() ||
+    criteria["gender"] === "" ) && (
+    criteria["min_age"] <= age ||
+    criteria["min_age"] === "" ) && (
+    criteria["max_age"] >= age ||
+    criteria["max_age"] === "" ) && (
+    criteria["location"].toLowerCase() === user['location'].toLowerCase() ||
+    criteria["location"] === "" )) {
+    return true;
+  } else {
+    return false;
   }
+
+}

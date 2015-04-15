@@ -1,0 +1,21 @@
+<h3>Search Huggers for your match</h3>
+
+<form action="/users/<%= @user.id %>/list">
+  <p>
+    <label for="">Gender: </label>
+    <input type="text" name="gender">
+  </p>
+  <p>
+    <label for="">Min Age: </label>
+    <input type="text" name="min_age">
+  </p>
+  <p>
+    <label for="">Max Age: </label>
+    <input type="text" name="max_age">
+  </p>
+  <p>
+    <label for="">Location: </label>
+    <input type="text" name="location" value="<%= @user.location %>">
+  </p>
+  <button>Search</button>
+</form>

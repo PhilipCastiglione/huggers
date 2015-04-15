@@ -13,6 +13,10 @@
 
     for (var i=0; i<users.length; i++) {
 
+      if (!includeUser(<%=@criteria.to_json%>, users[i])) {
+        continue;
+      }
+
       $('main').append('<hr>');
 
       var $section = $('<section>');
