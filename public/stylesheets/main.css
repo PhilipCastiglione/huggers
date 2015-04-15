@@ -110,7 +110,7 @@ nav#menu li img {
 
 /*SPLASH*/
 main#splash {
-  height: 85%;
+  min-height: 85%;
   background: rgb(255,225,255);
   text-align: center;
 }
@@ -131,19 +131,82 @@ main#splash a {
   font-family: 'Lobster Two', cursive;
   font-size: 2em;
   border: 3px solid rgb(144,96,245);
+  color: rgb(144,96,245);
+}
+
+/*ABOUT*/
+main#about {
+  min-height: 85%;
+  background: rgb(255,225,255);
+}
+
+main#about article {
+  margin: 0;
+  padding: 1em;
+  padding-bottom: 0;
 }
 
 /*LOGIN*/
 main#login {
-  height: 85%;
+  min-height: 85%;
   background: rgb(255,225,255);
   text-align: center;
 }
 
-/*LIST*/
+main#login p {
+  margin: 0;
+  padding-top: 20% ;
+  font-size: 1.5em;
+}
 
+main#login input {
+  margin: .25em 0;
+  padding: .25em;
+}
+
+main#login button {
+  background: none;
+  margin: 1em;
+  padding: .5em;
+  font-family: 'Lobster Two', cursive;
+  font-size: 2em;
+  border: 3px solid rgb(144,96,245);
+  color: rgb(144,96,245);
+  text-decoration: underline;
+}
+
+/*JOIN*/
+main#join {
+  min-height: 85%;
+  background: rgb(255,225,255);
+  text-align: center;
+}
+
+main#join p {
+  margin: 0;
+  padding-top: 1em;
+  font-size: 1.5em;
+}
+
+main#join input {
+  margin: .25em 0;
+  padding: .25em;
+}
+
+main#join button {
+  background: none;
+  margin: 1em;
+  padding: .5em;
+  font-family: 'Lobster Two', cursive;
+  font-size: 2em;
+  border: 3px solid rgb(144,96,245);
+  color: rgb(144,96,245);
+  text-decoration: underline;
+}
+
+/*LIST*/
 main#list {
-  height: 100%;
+  min-height: 85%;
 }
 
 main#list hr {
@@ -188,7 +251,7 @@ main#list a section article h3 {
 
 /*PUBLIC PROFILE*/
 main#public-profile {
-  height: 100%;
+  min-height: 85%;
   background: rgb(255,225,255);
 }
 

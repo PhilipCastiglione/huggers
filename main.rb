@@ -43,10 +43,6 @@ after do
   ActiveRecord::Base.connection.close
 end
 
-get '/fonttest' do
-  erb :fonttest
-end
-
 # huggers
 get '/' do
   if current_user.nil?
@@ -86,7 +82,7 @@ end
 post '/users' do
   user = User.new()
   user.password = params[:password]
-  ['email','first_name','middle_name','last_name','dob','gender','relationship','partner_user_id','nationality','location'].each do |attribute|
+  ['email','first_name','last_name','dob','gender','relationship','partner_user_id','location'].each do |attribute|
     user[attribute] = params[attribute.to_sym]
   end
   

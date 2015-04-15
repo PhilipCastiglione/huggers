@@ -12,7 +12,7 @@ CREATE TABLE users (
   profile_photo_id INTEGER,
   relationship INTEGER NOT NULL,
   partner_user_id INTEGER,
-  nationality VARCHAR(100) NOT NULL,
+  nationality VARCHAR(100),
   location VARCHAR(100) NOT NULL
 );
 
