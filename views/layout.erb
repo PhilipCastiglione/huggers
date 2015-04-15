@@ -10,13 +10,30 @@
 </head>
 <body>
   <header>
-    <img id="menu" src="" alt="Menu">
+    <img id="menu-toggle" src="/assets/images/menu.jpg" alt="menu toggle">
     <a href="/"><h1>Huggers</h1></a>
     <img id="logo" src="" alt="Huggers hearts">
     <a href="/session/logout">templogout</a>
   </header>
   <div class="header-separator"></div>
-  
+  <nav id="menu" class="hidden">
+    <ul>
+      <li>
+        <a href="/users/<%=session[:user_id]%>/search">
+          Search
+          <img src="/assets/images/search.png" alt="search icon">
+        </a>
+      </li>
+      <li><a href="/users/<%=session[:user_id]%>/profile">My Profile</a></li>
+      <li><a href="/users/<%=session[:user_id]%>/flirts">Flirts/Us</a></li>
+      <li><a href="/users/<%=session[:user_id]%>/community">Community</a></li>
+      <li><a href="/users/<%=session[:user_id]%>/games">Games</a></li>
+      <li><a href="/users/<%=session[:user_id]%>/settings">Settings</a></li>
+      <li><a href="/huggers/about">About Huggers</a></li>
+      <p>&copy; Copyright Philip Castiglione 2015</p>
+    </ul>
+  </nav>
+
   <%= yield %>
 
 </body>

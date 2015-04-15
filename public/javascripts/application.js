@@ -61,3 +61,12 @@ var includeUser = function(criteria, user) {
   }
 
 }
+
+// menu initialize
+var menuInit = function() {
+  $('header img#menu-toggle').on('click', function(){
+    $('nav#menu').toggleClass('hidden');
+  })
+}
+
+$(document).ready(menuInit);

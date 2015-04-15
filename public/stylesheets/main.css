@@ -7,6 +7,10 @@ body {
   margin: 0;
 }
 
+.hidden {
+  display: none;
+}
+
 /*HEADER*/
 header {
   position: fixed;
@@ -22,9 +26,49 @@ header * {
   padding: 0;
 }
 
+header img#menu-toggle {
+  height: 80%;
+}
+
 .header-separator {
   min-height: 15%;
   width: 100%;
+}
+
+/*MENU*/
+nav#menu {
+  position: fixed;
+  top: 15%;
+  left: 0;
+  height: 85%;
+  width: 80%;
+  background: grey;
+}
+
+nav#menu ul {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+nav#menu li {
+  display: block;
+  list-style: none;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  height: 13%;
+  width: 90%;
+  padding-left: 10%;
+}
+
+nav#menu li a {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+nav#menu li img {
+  max-height: 80%;
 }
 
 /*LIST*/

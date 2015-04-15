@@ -101,6 +101,10 @@ get '/huggers/about' do
 end
 
 # MM/Relationship
+get '/users/:user_id/profile' do
+  redirect to "/users/#{params[:user_id]}"
+end
+
 get '/users/:user_id' do
   
   @user = User.find_by(id: params[:user_id])
