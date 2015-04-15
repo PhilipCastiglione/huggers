@@ -1,13 +1,19 @@
 <main id="public-profile">
-  <section>
+  <section id="top">
     <div id="pictures">
-      <!-- add functionality to click and see the other images with js -->
+      <!-- add functionality to click and see the other pics with js -->
     </div>
     <article id="bio">
-      
+      <h3><%= @user.first_name %></h3>
+      <p><%= @user.location %></p>
+      <% if @partner.nil?%>
+        <p><%= "Looking for love!"%></p>
+      <% else %>
+        <p><%= "In a relationship with <a href='/users/#{@partner.id}'>#{@partner.first_name}</a>"%></p>
+      <% end %>
     </article>
   </section>
-  <section>
+  <section id="remainder">
     <article id="details">
       
     </article>
@@ -17,29 +23,7 @@
 <script>
 
   renderProfilePic(<%=@user.profile_photo_id%>,'#pictures');
-
-  // OK SO: Should I use AJAX or just pass that single user object down through ruby;
-  // kind of seems like I have to anyway so... what's the AJAX benefit here? Since it's small.
-  // and I will have to loop through the whole user array to just find the one thing I need anyway...
-
-  /*
-  $.ajax({
-
-    url: '/api/users',
-    method: 'get',
-    dataType: 'json'
-
-  }).done(function(users){
-
-    for (var i=0; i<users.length; i++) {
-
-        if (users[i]['id'] === @user.id) {
-          lalala; maybe get just that into an object then use it yaya
-        }
-
-      }
-
-  });
-  */
+  var age = SQLDobToAge((<%=@user.dob.to_s.split('')%>).join('')); // preventing stupid js implicit type coercion
+  $('h3').append(', ' + age);
 
 </script>

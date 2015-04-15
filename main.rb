@@ -52,6 +52,11 @@ post '/session' do
   end
 end
 
+get '/session/logout' do
+  session[:user_id] = nil
+  redirect to '/'
+end
+
 get '/users/new' do
   @retained_content = {}
   erb :users_new
@@ -59,7 +64,7 @@ end
 
 post '/users' do
   user = User.new()
-  user.password = params[:password] # WHY DOES THIS LINE HAVE TO BE SEPERATE TO WORK WTF
+  user.password = params[:password]
   ['email','first_name','middle_name','last_name','dob','gender','relationship','partner_user_id','nationality','location'].each do |attribute|
     user[attribute] = params[attribute.to_sym]
   end
@@ -81,13 +86,22 @@ end
 get '/users/:user_id' do
   
   @user = User.find_by(id: params[:user_id])
-  if @user.nil? 
+  
+  if @user.nil? #user not present
     @error = "User not found!"
     erb :error
-  elsif current_user.id.to_s == params[:user_id]
-    erb :private_profile
   else
-    erb :public_profile
+
+    @partner = User.find_by(id: @user.partner_user_id)
+    
+    if current_user.nil? #no one logged in
+      erb :public_profile
+    elsif current_user.id.to_s == params[:user_id] #logged in user = profile user
+      erb :private_profile
+    else
+      erb :public_profile #logged in user != profile user
+    end
+
   end
 
 end
