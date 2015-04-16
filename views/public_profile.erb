@@ -1,6 +1,6 @@
 <main id="public-profile">
   <section id="top">
-    <div id="pictures">
+    <div class="pictures">
       <!-- add functionality to click and see the other pics with js -->
     </div>
     <article id="bio">
@@ -22,7 +22,7 @@
 
 <script>
 
-  renderProfilePic(<%=@user.profile_photo_id%>,'#pictures');
+  renderProfilePic(<%=@user.profile_photo_id%>,'.pictures');
   var age = SQLDobToAge((<%=@user.dob.to_s.split('')%>).join('')); // preventing stupid js implicit type coercion
   $('h3').append(', ' + age);
 

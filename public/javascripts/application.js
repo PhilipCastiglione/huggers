@@ -65,11 +65,7 @@ var includeUser = function(criteria, user) {
 // menu initialize
 var menuInit = function() {
   $('header img#menu-toggle').on('click', function(){
-    if ($('nav#menu').is(":hidden")) {
       $('nav#menu').animate({width:'toggle'},200);
-    } else {
-      $('nav#menu').animate({width:'toggle'},200);
-    }
   })
 }
 

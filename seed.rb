@@ -14,7 +14,6 @@ katy = User.create(
   dob: '15/10/1984',
   gender: 'female',
   relationship: 1,
-  nationality: 'American',
   location: 'Melbourne'
 )
 dt = User.create(
@@ -25,7 +24,6 @@ dt = User.create(
   dob: '15/10/1962',
   gender: 'male',
   relationship: 1,
-  nationality: 'Australian',
   location: 'Melbourne'
 )
 ron = User.create(
@@ -36,7 +34,6 @@ ron = User.create(
   dob: '30/04/1963',
   gender: 'male',
   relationship: 0,
-  nationality: 'American',
   location: 'Boston'
 )
 mike = User.create(
@@ -47,7 +44,6 @@ mike = User.create(
   dob: '03/08/1988',
   gender: 'male',
   relationship: 1,
-  nationality: 'Australian',
   location: 'Perth'
 )
 sarah = User.create(
@@ -58,7 +54,6 @@ sarah = User.create(
   dob: '15/06/1990',
   gender: 'female',
   relationship: 1,
-  nationality: 'Canadian',
   location: 'Perth'
 )
 jane = User.create(
@@ -69,10 +64,18 @@ jane = User.create(
   dob: '27/11/1991',
   gender: 'female',
   relationship: 0,
-  nationality: 'Australian',
   location: 'Melbourne'
 )
-
+matt = User.create(
+  email: 'matt@fakemail.com',
+  password: 'matt',
+  first_name: 'Matt',
+  last_name: 'Swan',
+  dob: '08/09/1980',
+  gender: 'male',
+  relationship: 0,
+  location: 'Melbourne'
+)
 
 katy.partner_user_id = dt.id
 dt.partner_user_id = katy.id
@@ -81,35 +84,39 @@ sarah.partner_user_id = mike.id
 
 dtpic = Profile_photo.create(
   user_id: dt.id,
-  link: 'https://ga-core.s3.amazonaws.com/production/uploads/instructor/image/1700/thumb_HEADSHOTS__2001_.jpg'
+  link: '/assets/images/profile_photos/daniel_profile1.jpg'
 )
 ronpic = Profile_photo.create(
   user_id: ron.id,
-  link: 'https://s3.amazonaws.com/yf-interactive/ron-m-before-after-hoz/img/ronald-old.jpg'
+  link: '/assets/images/profile_photos/ronald_profile1.jpg'
 )
 Profile_photo.create(
   user_id: katy.id,
-  link: 'https://cbsradionews.files.wordpress.com/2014/01/katy_perry1.jpg?w=620&h=349&crop=1'
+  link: '/assets/images/profile_photos/katy_profile1.jpg'
 )
 katypic = Profile_photo.create(
   user_id: katy.id,
-  link: 'http://www.allthetests.com/quiz32/picture/pic_1423339389_1.jpg'
+  link: '/assets/images/profile_photos/katy_profile2.jpg'
 )
 Profile_photo.create(
   user_id: katy.id,
-  link: 'http://d1qhhammy2egfp.cloudfront.net/wp-content/themes/katyperry-2/library/img/katyyellowshirt.png'
+  link: '/assets/images/profile_photos/katy_profile3.jpg'
 )
 mikepic = Profile_photo.create(
   user_id: mike.id,
-  link: 'http://www.geek.com/wp-content/uploads/2010/07/Scott-Forstall-Executive-profile-image-590x825.jpg'
+  link: '/assets/images/profile_photos/mike_profile1.jpg'
 )
 sarahpic = Profile_photo.create(
   user_id: sarah.id,
-  link: 'http://upload.wikimedia.org/wikipedia/commons/6/65/Kruse_CNDLS_Profile.png'
+  link: '/assets/images/profile_photos/sarah_profile1.jpg'
 )
 janepic = Profile_photo.create(
   user_id: jane.id,
-  link: 'http://www.realtimearts.net/data/images/art/47/4764_profile_mudie.jpg'
+  link: '/assets/images/profile_photos/jane_profile1.jpg'
+)
+mattpic = Profile_photo.create(
+  user_id: matt.id,
+  link: '/assets/images/profile_photos/matt_profile1.jpg'
 )
 
 katy.profile_photo_id = katypic.id
@@ -118,6 +125,7 @@ ron.profile_photo_id = ronpic.id
 mike.profile_photo_id = mikepic.id
 sarah.profile_photo_id = sarahpic.id
 jane.profile_photo_id = janepic.id
+matt.profile_photo_id = mattpic.id
 
 katy.save
 dt.save
@@ -125,5 +133,6 @@ ron.save
 mike.save
 sarah.save
 jane.save
+matt.save
 
 ActiveRecord::Base.connection.close

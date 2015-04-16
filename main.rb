@@ -85,7 +85,7 @@ post '/users' do
   ['email','first_name','last_name','dob','gender','relationship','partner_user_id','location'].each do |attribute|
     user[attribute] = params[attribute.to_sym]
   end
-  
+
   if user.save
     session[:user_id] = user.id
     redirect to "/users/#{user.id}"
@@ -93,6 +93,19 @@ post '/users' do
     @retained_content = params
     erb :new_user
   end
+end
+
+post '/users/:user_id' do
+  user = User.find_by(id: params[:user_id])
+  user.email = params[:email]
+  user.password = params[:password]
+
+  if user.save
+    redirect to "/users/#{user.id}"
+  else
+    erb :settings
+  end
+
 end
 
 get '/huggers/about' do
@@ -108,7 +121,12 @@ get '/users/:user_id' do
   
   @user = User.find_by(id: params[:user_id])
   
-  if @user.nil? #user not present
+  if  session[:user_id].nil? #no user entered
+
+    @error = "Log in or sign up!"
+    erb :error
+
+  elsif @user.nil? #user not present
 
     @error = "User not found!"
     erb :error
@@ -126,7 +144,23 @@ get '/users/:user_id' do
     end
 
   end
+end
 
+get '/users/:user_id/public' do
+
+  @user = User.find_by(id: params[:user_id])
+  
+  if @user.nil? #user not present
+
+    @error = "User not found!"
+    erb :error
+
+  else
+
+    @partner = User.find_by(id: @user.partner_user_id)
+    erb :public_profile
+
+  end
 end
 
 get '/users/:user_id/community' do
@@ -165,15 +199,17 @@ end
 get '/users/:user_id/list' do
   validate_login
   validate_current_user params[:user_id]
-
-  @criteria = {
-    gender: params[:gender],
-    min_age: params[:min_age],
-    max_age: params[:max_age],
-    location: params[:location]
-  }
-  
-  erb :list
+  if !params[:search] 
+    redirect to "/users/#{session[:user_id]}/search"
+  else
+    @criteria = {
+      gender: params[:gender],
+      min_age: params[:min_age],
+      max_age: params[:max_age],
+      location: params[:location]
+    }
+    erb :list
+  end
 end
 
 get '/users/:user_id/flirts' do
@@ -190,7 +226,13 @@ get '/users/:user_id/us' do
   validate_current_user params[:user_id]
 
   @user = User.find_by(id: params[:user_id])
-  erb :us
+  @partner = User.find_by(id: @user.partner_user_id)
+
+  if @partner.nil?
+    redirect '/'
+  else
+    erb :us
+  end
 end
 
 # APIs

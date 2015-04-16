@@ -1,1 +1,22 @@
-Settings coming soon!
+<main id="settings">
+  <h2>Account Settings</h2>
+  <h3>Privacy</h3>
+  <article id="privacy">
+    <p>Let us have all your information: </p>
+    <p>Anyone can see your shit: </p>
+    <p>Can I borrow some sugar: </p>
+  </article>
+  <aside id="privacy_radio">
+    <p><input type="radio" name="privacy1" checked> Y <input type="radio" name="privacy1" > N</p>
+    <p><input type="radio" name="privacy2" checked> Y <input type="radio" name="privacy2" > N</p>
+    <p><input type="radio" name="privacy3" checked> Y <input type="radio" name="privacy3" > N</p>
+  </aside>
+  <h3>Account Details</h3>
+  <article id="account_details">
+    <form action="/users/<%= @user.id %>" method="post">
+      <input type="text" name="email" placeholder="email address">
+      <input type="password" name="password" placeholder="password">
+      <button>Update</button>
+    </form>
+  </article>
+</main>

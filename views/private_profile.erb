@@ -1,3 +1,36 @@
-private lel
+<main id="private-profile">
+  <h3>
+    <a href="/users/<%=@user.id%>/public">View Public Profile</a>
+  </h3>
+  <section class="photos">
+    <h3>Photos</h3>
+    <div class="pictures">
+      <!-- add functionality to click and see the other pics with js -->
+    </div>
+    <p>Click to manage profile photos.</p>
+  </section>
+  <section id="bio_stats">
+    <h3>Your Details</h3>
+    <p>Name: <%= @user.first_name %> <%= @user.last_name %></p>
+    <p>Gender: <%= @user.gender %></p>
+    <p>Date of Birth: <%= @user.dob %> Age: <span class="age"></span></p>
+    <p>Location: <%= @user.location %></p>
+    <p>Relationship status: <%= @user.relationship %></p>
+    <% if @partner %>
+    <p>Partner Hugger id: <%= @partner.id %></p>
+    <p>Partner Profile: <a href="/users/<%=@partner.id%>"><%= @partner.first_name %> <%= @partner.last_name %></a></p>
+    <% end%>
+  </section>
+  <section id="descriptive_content">
+    <h3>Describe Yourself</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum iure deserunt, vel est maiores rem repudiandae aliquam necessitatibus illum perspiciatis ab sint odit vero consequatur officia libero fuga. Placeat, pariatur!</p>
+  </section>
+</main>
 
-can edit much
+<script>
+
+  renderProfilePic(<%=@user.profile_photo_id%>,'.pictures');
+  var age = SQLDobToAge((<%=@user.dob.to_s.split('')%>).join('')); // preventing stupid js implicit type coercion
+  $('.age').append(age);
+  
+</script>

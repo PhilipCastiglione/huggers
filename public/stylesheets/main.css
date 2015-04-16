@@ -14,6 +14,7 @@ body {
 /*HEADER*/
 header {
   position: fixed;
+  z-index: 3;
   height: 15%;
   width: 100%;
   background: rgb(255,132,188);
@@ -66,6 +67,7 @@ div.header-separator {
 nav#menu {
   display: none;
   position: fixed;
+  z-index: 3;
   top: 15%;
   left: 0;
   height: 85%;
@@ -132,6 +134,19 @@ main#splash a {
   font-size: 2em;
   border: 3px solid rgb(144,96,245);
   color: rgb(144,96,245);
+}
+
+/*ERROR*/
+main#error {
+  min-height: 85%;
+  background: rgb(255,225,255);
+  text-align: center;
+}
+
+main#error p {
+  margin: 0;
+  padding-top: 5em;
+  font-size: 1.5em;
 }
 
 /*ABOUT*/
@@ -204,6 +219,41 @@ main#join button {
   text-decoration: underline;
 }
 
+/*SEARCH*/
+main#search {
+  min-height: 85%;
+  background: rgb(255,225,255);
+  text-align: center;
+}
+
+main#search h3 {
+  margin: 0;
+  font-size: 1.75em;
+  padding-top: 2em; 
+}
+
+main#search p {
+  margin: 0;
+  padding-top: 1em;
+  font-size: 1.5em;
+}
+
+main#search input {
+  margin: .25em 0;
+  padding: .25em;
+}
+
+main#search button {
+  background: none;
+  margin: 1em;
+  padding: .5em;
+  font-family: 'Lobster Two', cursive;
+  font-size: 2em;
+  border: 3px solid rgb(144,96,245);
+  color: rgb(144,96,245);
+  text-decoration: underline;
+}
+
 /*LIST*/
 main#list {
   min-height: 85%;
@@ -260,13 +310,13 @@ main#public-profile section#top {
   height: 50%;
 }
 
-main#public-profile section#top div#pictures {
+main#public-profile section#top div.pictures {
   width: 49%;
   height: 100%;
   display: inline-block;
 }
 
-main#public-profile section#top div#pictures img {
+main#public-profile section#top div.pictures img {
   max-width: 100%;
   max-height: 100%;
 }
@@ -277,4 +327,208 @@ main#public-profile section#top article#bio {
   height: 100%;
   display: inline-block;
   vertical-align: top;
+}
+
+/*PRIVATE PROFILE*/
+main#private-profile {
+  min-height: 85%;
+  text-align: center;
+  background: rgb(255,225,255);
+}
+
+main#private-profile h3 {
+  margin: 0;
+  padding: 1em;
+}
+
+main#private-profile a {
+  color: rgb(144,96,245);
+  text-decoration: none;
+}
+
+main#private-profile section.photos h3 {
+  text-decoration: underline;
+  margin: 0;
+  padding: 1em;
+}
+
+main#private-profile section.photos div.pictures {
+  max-width: 100%;
+}
+
+main#private-profile section.photos div.pictures img {
+  max-width: 100%;
+}
+
+main#private-profile section#bio_stats h3 {
+  text-decoration: underline;
+}
+
+main#private-profile section#descriptive_content h3 {
+  text-decoration: underline;
+}
+
+main#private-profile section#descriptive_content p {
+  padding-bottom: 1em;
+}
+
+/*FLIRTS*/
+main#flirts {
+  min-height: 85%;
+  text-align: center;
+  background: rgb(255,225,255);
+}
+
+main#flirts h3 {
+  margin: 0;
+  padding: 1em;
+}
+
+/*COMMUNITY*/
+main#community {
+  min-height: 85%;
+  text-align: center;
+  background: rgb(255,225,255);
+}
+
+main#community h3 {
+  margin: 0;
+  padding: 1em;
+  text-decoration: underline;
+}
+
+/*GAMES*/
+main#games {
+  min-height: 85%;
+  text-align: center;
+  background: rgb(255,225,255);
+}
+
+main#games h3 {
+  margin: 0;
+  padding: 1em;
+}
+
+/*SETTINGS*/
+main#settings {
+  min-height: 85%;
+  background: rgb(255,225,255);
+  text-align: center;
+}
+
+main#settings h2 {
+  margin: 0;
+  padding: 1em 0;
+}
+
+main#settings h3 {
+  margin: 0;
+  text-decoration: underline;
+}
+
+main#settings article#privacy {
+  display: inline-block;
+  width: 65%;
+  text-align: left;
+  margin: 0;
+  padding: 1em;
+  padding-bottom: 0;
+}
+
+main#settings aside#privacy_radio {
+  display: inline-block;
+  width: 25%;
+  text-align: left;
+}
+
+main#settings article#account_details {
+  text-align: center;
+  margin: 0;
+  padding-left: 1em;
+  padding-bottom: 0;
+  font-size: 1.5em
+}
+
+main#settings article#account_details input {
+  margin-top: .5em;
+  padding: .25em;
+}
+
+main#settings article#account_details button {
+  background: none;
+  margin: .5em;
+  padding: .25em;
+  font-family: 'Lobster Two', cursive;
+  font-size: 1.5em;
+  border: 3px solid rgb(144,96,245);
+  color: rgb(144,96,245);
+  text-decoration: underline;
+}
+
+/*US*/
+main#us {
+  min-height: 85%;
+  text-align: center;
+  background: rgb(255,225,255);
+}
+
+main#us h2 {
+  margin: 0;
+  padding-top: 1em;
+}
+
+main#us section.photos {
+  position: relative;
+  text-align: center;
+}
+
+main#us section.photos div.big-heart {
+  position: absolute;
+  width: 70%;
+  margin-left: 5%;
+  display: inline-block;
+}
+
+main#us section.photos div.big-heart img{
+  max-width: 100%;
+  max-height: 100%;
+}
+
+main#us section.photos div.name1,
+main#us section.photos div.name2,
+main#us section.photos div.picture1,
+main#us section.photos div.picture2 {
+  width: 40%;
+  height: 100%;
+  display: inline-block;
+  margin-bottom: .5em;
+}
+
+main#us section.photos div.picture1 img,
+main#us section.photos div.picture2 img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+main#us section#contact-methods div.contact {
+  width: 40%;
+  height: 10%;
+  display: inline-block;
+  padding:.25em;
+  position: relative;
+  z-index: 1;
+}
+
+main#us section#contact-methods div.contact button {
+  width: 100%;
+  height: 100%;
+  font-size: 1.75em;
+  padding:.25em;
+  border-color: rgb(144,96,245);
+  border-width: 5px;
+  color: rgb(144,96,245);
+  background: rgb(255,132,188);
+  -webkit-border-radius: 1em;
+  -moz-border-radius: 1em;
+  border-radius: 1em;
 }

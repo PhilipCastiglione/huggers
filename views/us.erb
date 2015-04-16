@@ -1,1 +1,32 @@
-Us coming soon!
+<main id="us">
+  <h2>&hearts; Us &hearts;</h2>
+  <section class="photos">
+    <div class="big-heart"><img src="/assets/images/big-heart.png" alt="big heart"></div>
+    <div class="name1"><%= @user.first_name %></div>
+    <div class="name2"><%= @partner.first_name %></div>
+    <div class="picture1"></div>
+    <div class="picture2"></div>
+  </section>
+  <section id="contact-methods">
+    <div class="contact">
+      <button>H&hearts; Text Chat</button>
+    </div>
+    <div class="contact">
+      <button>H&hearts; Pic Xchange</button>
+    </div>
+    <div class="contact">
+      <button>H&hearts; Video Chat</button>
+    </div>
+    <div class="contact">
+      <button>H&hearts; VOIP Call</button>
+    </div>
+  </section>
+
+</main>
+
+<script>
+
+  renderProfilePic(<%=@user.profile_photo_id%>,'.picture1');
+  renderProfilePic(<%=@partner.profile_photo_id%>,'.picture2');
+
+</script>
