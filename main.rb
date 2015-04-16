@@ -163,6 +163,13 @@ get '/users/:user_id/public' do
   end
 end
 
+get '/users/:user_id/photos' do
+  validate_login
+  
+  @user = User.find_by(id: params[:user_id])
+  erb :photos
+end
+
 get '/users/:user_id/community' do
   validate_login
   validate_current_user params[:user_id]

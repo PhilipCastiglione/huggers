@@ -372,6 +372,52 @@ main#private-profile section#descriptive_content p {
   padding-bottom: 1em;
 }
 
+/*PHOTOS*/
+main.photos {
+  min-height: 85%;
+  width:100%;
+  position: relative;
+}
+
+main.photos div.arrow_left {
+  display: inline-block;
+  padding-top: 55%;
+  padding-left: 3%;
+  height: 20%;
+  width: 47%;
+  text-align: left;
+}
+
+main.photos div.arrow_left img {
+  max-width: 30%;
+  max-height: 30%;
+}
+
+main.photos div.arrow_right {
+  display: inline-block;
+  padding-top: 55%;
+  height: 20%;
+  width: 47%;
+  text-align: right;
+}
+
+main.photos div.arrow_right img {
+  max-width: 30%;
+  max-height: 30%;
+}
+
+main.photos div.pictures {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+
+main.photos div.pictures img {
+  height: 100%;
+  width: 100%;
+}
+
 /*FLIRTS*/
 main#flirts {
   min-height: 85%;

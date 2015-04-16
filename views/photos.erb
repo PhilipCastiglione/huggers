@@ -1,0 +1,59 @@
+<main class="photos">
+  <div class="pictures"></div>
+  <div class="arrow_left"><img src="/assets/images/arrow_left.png" alt="left arrow"></div>
+  <div class="arrow_right"><img src="/assets/images/arrow_right.png" alt="right arrow"></div>
+</main>
+
+<script>
+  renderProfilePic(<%=@user.profile_photo_id%>,'.pictures');
+
+  var photoArray = [];
+  var currentPhoto = 0;
+
+  $.ajax({
+
+    url: '/api/profile_photos',
+    method: 'get',
+    dataType: 'json'
+
+  }).done(function(data) {
+
+    for (var i=0; i<data.length; i++) {
+      if (data[i]['user_id'] === <%=@user.id%>) {
+        if (data[i]['user_id'] === <%=@user.profile_photo_id%>)
+          photoArray.unshift(data[i]['link']);
+        else {
+          photoArray.push(data[i]['link']);
+        }
+      }
+    }
+
+    $('.arrow_right').on('click', nextPic);
+    $('.arrow_left').on('click', previousPic);
+
+  });
+
+  var nextPic = function() {
+    if (photoArray.length === 1) {
+      return
+    } else if (currentPhoto === photoArray.length) {
+      currentPhoto = 0;
+    } else {
+      currentPhoto++;
+    }
+    $('.pictures').html("<img src=" + photoArray[currentPhoto] + " alt='profile picture'>");
+  }
+
+  var previousPic = function() {
+    if (photoArray.length === 1) {
+      return
+    } else if (currentPhoto === 0) {
+      currentPhoto = photoArray.length;
+    } else {
+      currentPhoto--;
+    }
+    $('.pictures').html("<img src=" + photoArray[currentPhoto] + " alt='profile picture'>");
+  }
+
+</script>
+

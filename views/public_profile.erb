@@ -1,8 +1,8 @@
 <main id="public-profile">
   <section id="top">
-    <div class="pictures">
-      <!-- add functionality to click and see the other pics with js -->
-    </div>
+    <a href="/users/<%= @user.id %>/photos">
+      <div class="pictures"></div>
+    </a>
     <article id="bio">
       <h3><%= @user.first_name %></h3>
       <p>Lives in <%= @user.location %></p>

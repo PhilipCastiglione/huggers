@@ -86,6 +86,14 @@ dtpic = Profile_photo.create(
   user_id: dt.id,
   link: '/assets/images/profile_photos/daniel_profile1.jpg'
 )
+Profile_photo.create(
+  user_id: dt.id,
+  link: '/assets/images/profile_photos/daniel_profile2.jpg'
+)
+Profile_photo.create(
+  user_id: dt.id,
+  link: '/assets/images/profile_photos/daniel_profile3.jpg'
+)
 ronpic = Profile_photo.create(
   user_id: ron.id,
   link: '/assets/images/profile_photos/ronald_profile1.jpg'
