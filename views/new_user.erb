@@ -1,7 +1,7 @@
 <main id="join">
 
   <% if @retained_content.empty? %>
-    <% ['email','first_name','last_name','dob','gender','relationship','partner_user_id','location'].each do |attribute| %>
+    <% ['email','first_name','last_name','dob','gender','relationship','partner_user_id','location','description'].each do |attribute| %>
       <% @retained_content[attribute] = "" %>
     <% end %>  
   <% end %>
@@ -17,6 +17,7 @@
       <input type="text" placeholder="relationship status" name="relationship" value="<%= @retained_content["relationship"] %>">
       <input type="text" placeholder="*partner hugger id" name="partner_user_id" value="<%= @retained_content["partner_user_id"] %>">
       <input type="text" placeholder="location" name="location" value="<%= @retained_content["location"] %>">
+      <input type="text" placeholder="description" name="description" value="<%= @retained_content["description"] %>">
     </p>
     <button>Join</button>
   </form>

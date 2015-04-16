@@ -316,6 +316,10 @@ main#public-profile section#top div.pictures {
   display: inline-block;
 }
 
+main#public-profile section#top a {
+  text-decoration: none;
+}
+
 main#public-profile section#top div.pictures img {
   max-width: 100%;
   max-height: 100%;
@@ -327,6 +331,11 @@ main#public-profile section#top article#bio {
   height: 100%;
   display: inline-block;
   vertical-align: top;
+}
+
+main#public-profile section article#details {
+  margin: 0;
+  padding: 1em;
 }
 
 /*PRIVATE PROFILE*/
@@ -343,6 +352,10 @@ main#private-profile h3 {
 
 main#private-profile a {
   color: rgb(144,96,245);
+  text-decoration: none;
+}
+
+main#private-profile section.photos a {
   text-decoration: none;
 }
 

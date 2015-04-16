@@ -16,7 +16,7 @@ require_relative 'profile_photo'
 
 enable :sessions
 
-# heroku_db_url = 'postgres://' #use heroku pg info
+
 
 helpers do
   def logged_in?
@@ -84,7 +84,7 @@ end
 post '/users' do
   user = User.new()
   user.password = params[:password]
-  ['email','first_name','last_name','dob','gender','relationship','partner_user_id','location'].each do |attribute|
+  ['email','first_name','last_name','dob','gender','relationship','partner_user_id','location','description'].each do |attribute|
     user[attribute] = params[attribute.to_sym]
   end
 
