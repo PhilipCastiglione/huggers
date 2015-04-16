@@ -16,6 +16,8 @@ require_relative 'profile_photo'
 
 enable :sessions
 
+# heroku_db_url = 'postgres://' #use heroku pg info
+
 helpers do
   def logged_in?
     !!current_user
@@ -165,7 +167,7 @@ end
 
 get '/users/:user_id/photos' do
   validate_login
-  
+
   @user = User.find_by(id: params[:user_id])
   erb :photos
 end

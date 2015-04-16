@@ -20,7 +20,7 @@
 
     for (var i=0; i<data.length; i++) {
       if (data[i]['user_id'] === <%=@user.id%>) {
-        if (data[i]['user_id'] === <%=@user.profile_photo_id%>)
+        if (data[i]['id'] === <%=@user.profile_photo_id%>)
           photoArray.unshift(data[i]['link']);
         else {
           photoArray.push(data[i]['link']);
@@ -36,7 +36,7 @@
   var nextPic = function() {
     if (photoArray.length === 1) {
       return
-    } else if (currentPhoto === photoArray.length) {
+    } else if (currentPhoto === photoArray.length - 1) {
       currentPhoto = 0;
     } else {
       currentPhoto++;
@@ -48,7 +48,7 @@
     if (photoArray.length === 1) {
       return
     } else if (currentPhoto === 0) {
-      currentPhoto = photoArray.length;
+      currentPhoto = photoArray.length - 1;
     } else {
       currentPhoto--;
     }
