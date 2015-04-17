@@ -1,6 +1,6 @@
 require 'sinatra'
 # require 'sinatra/contrib/all'
-# require 'pg' #is this necessary with active_record?
+require 'pg'
 # require 'pry'
 require 'bcrypt'
 # require 'json' #is this necessary?
