@@ -162,6 +162,14 @@ main#about article {
   padding-bottom: 0;
 }
 
+main#about article h3 {
+  font-size: 5vh;
+}
+
+main#about article p {
+  font-size: 3vh;
+}
+
 /*LOGIN*/
 main#login {
   min-height: 84vh;
