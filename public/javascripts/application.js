@@ -62,6 +62,15 @@ var includeUser = function(criteria, user) {
 
 }
 
+var confirmDelete = function() {
+  $('.warning1').show();
+  $('.warning2').show();
+  $('.warning3').show();
+  $('form#form_delete').submit(function() {
+    delConfirmed = true;
+  });
+};
+
 // menu initialize
 var menuInit = function() {
   $('header img#menu-toggle').on('click', function(){
