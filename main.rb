@@ -26,19 +26,20 @@ helpers do
   def current_user
     User.find_by(id: session[:user_id])
   end
-end
 
-def validate_login
-  if !logged_in?
-    redirect to '/'
+  def validate_login
+    if !logged_in?
+      redirect to '/'
+    end
+  end
+
+  def validate_current_user(user_id)
+    if user_id != current_user.id.to_s
+      redirect to '/'
+    end
   end
 end
 
-def validate_current_user(user_id)
-  if user_id != current_user.id.to_s
-    redirect to '/'
-  end
-end
 
 # db
 after do
@@ -113,7 +114,7 @@ end
 post '/users/:user_id/delete' do
   user = User.find_by(id: params[:user_id])
   user.delete
-  
+
   session[:user_id] = nil;
   redirect to '/'
 end

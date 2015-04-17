@@ -32,7 +32,18 @@
         </a>
       </li>
       <li><a href="/users/<%=session[:user_id]%>/profile">My Profile</a></li>
-      <li><a href="/users/<%=session[:user_id]%>/flirts">Flirts/&hearts; Us &hearts;</a></li>
+      <% show_us = false %>
+      <% if logged_in?  %>
+        <% user = current_user %>
+        <% if user.relationship != 0 %>
+          <% show_us = true %>
+        <% end%>
+      <% end %>
+      <% if show_us %>
+        <%= "<li><a href='/users/#{session[:user_id]}/us'>&hearts; Us &hearts;</a></li>" %>
+      <% else %>
+        <%= "<li><a href='/users/#{session[:user_id]}/flirts'>Flirts</a></li>" %>
+      <% end %>
       <li><a href="/users/<%=session[:user_id]%>/community">Community</a></li>
       <li><a href="/users/<%=session[:user_id]%>/games">Games</a></li>
       <li><a href="/users/<%=session[:user_id]%>/settings">Settings</a></li>
