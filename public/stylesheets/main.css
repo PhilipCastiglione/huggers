@@ -113,7 +113,7 @@ main#splash {
 main#splash h1 {
   margin: 0;
   font-size: 6vh;
-  padding-top: 25vh;
+  padding-top: 20vh;
 }
 
 main#splash h3 {
@@ -400,6 +400,29 @@ main#private-profile section#descriptive_content p {
   padding-bottom: 2vh;
 }
 
+main#private-profile section#delete_profile h3 {
+  text-decoration: underline;
+}
+
+main#private-profile section#delete_profile button {
+  background: none;
+  margin: 2vh 1vw;
+  padding: 1vh 2vw;
+  font-family: monospace;
+  font-size: 5vh;
+  border: 3px solid red;
+  color: red;
+}
+
+main#private-profile section#delete_profile .warning1,
+main#private-profile section#delete_profile .warning2,
+main#private-profile section#delete_profile .warning3 {
+  color: red;
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 3vh;
+}
+
 /*PHOTOS*/
 main.photos {
   height: 84vh;
@@ -528,7 +551,7 @@ main#settings article#account_details input {
 main#settings article#account_details button {
   background: none;
   margin: 2vh 5vw;
-  padding: 3vh 5vh;
+  padding: 3vh 5vw;
   font-family: 'Lobster Two', cursive;
   font-size: 5vh;
   border: 3px solid rgb(144,96,245);

@@ -25,9 +25,41 @@
     <h3>Describe Yourself</h3>
     <p><%= @user.description %></p>
   </section>
+  <section id="delete_profile">
+    <h3>Delete Profile</h3>
+    <form id="form_delete" action="/users/<%=@user.id%>/delete" method="post">
+      <span class="warning1">Are you sure? This action cannot be reversed!<br></span>
+      <span class="warning2">WARNING</span>
+      <button id="delete">Delete</button>
+      <span class="warning3">WARNING</span>
+    </form>
+  </section>
 </main>
 
 <script>
+
+  var delConfirmed = false;
+
+  var confirmDelete = function() {
+    $('.warning1').show();
+    $('.warning2').show();
+    $('.warning3').show();
+    $('form#form_delete').submit(function() {
+      delConfirmed = true;
+    });
+  };
+
+  $('.warning1').hide();
+  $('.warning2').hide();
+  $('.warning3').hide();
+  $('#delete').on('click', confirmDelete);
+  $('form#form_delete').submit(function() {
+    if (delConfirmed) {
+      return true;
+    } else {
+      return false;
+    }
+  });
 
   renderProfilePic(<%=@user.profile_photo_id%>,'.pictures');
   var age = SQLDobToAge((<%=@user.dob.to_s.split('')%>).join('')); // preventing stupid js implicit type coercion

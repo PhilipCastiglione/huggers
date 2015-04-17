@@ -110,6 +110,14 @@ post '/users/:user_id' do
 
 end
 
+post '/users/:user_id/delete' do
+  user = User.find_by(id: params[:user_id])
+  user.delete
+  
+  session[:user_id] = nil;
+  redirect to '/'
+end
+
 get '/huggers/about' do
   erb :about
 end
