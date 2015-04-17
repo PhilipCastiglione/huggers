@@ -59,9 +59,9 @@ let me know pls philipcastiglione at gmail etc
 
 ##Version 0.2
 At 10:57am Friday 17th April...
-![Wish List 1](/documentation/v0.2/wishlist1.jpg)
-![Wish List 2](/documentation/v0.2/wishlist2.jpg)
-![Wish List 3](/documentation/v0.2/wishlist3.jpg)
-![To Do 1](/documentation/v0.2/todo1.jpg)
-![To Do 2](/documentation/v0.2/todo2.jpg)
+![Wish List 1](/documentation/v0.2/wishlist1.png)
+![Wish List 2](/documentation/v0.2/wishlist2.png)
+![Wish List 3](/documentation/v0.2/wishlist3.png)
+![To Do 1](/documentation/v0.2/todo1.png)
+![To Do 2](/documentation/v0.2/todo2.png)
 
