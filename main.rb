@@ -63,7 +63,7 @@ get '/session/new' do
 end
 
 post '/session' do
-  @current_user = User.find_by(email: params[:email])
+  @current_user = User.find_by(email: params[:email].downcase)
 
   if @current_user && @current_user.authenticate(params[:password])
     session[:user_id] = @current_user.id
@@ -88,7 +88,8 @@ end
 post '/users' do
   user = User.new()
   user.password = params[:password]
-  ['email','first_name','last_name','dob','gender','relationship','partner_user_id','location','description'].each do |attribute|
+  user['email'] = params[:email].downcase
+  ['first_name','last_name','dob','gender','relationship','partner_user_id','location','description'].each do |attribute|
     user[attribute] = params[attribute.to_sym]
   end
 
