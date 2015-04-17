@@ -1,11 +1,11 @@
 require 'sinatra'
-require 'sinatra/contrib/all'
-require 'pg' #is this necessary with active_record?
-require 'pry'
+# require 'sinatra/contrib/all'
+# require 'pg' #is this necessary with active_record?
+# require 'pry'
 require 'bcrypt'
-require 'json' #is this necessary?
+# require 'json' #is this necessary?
 
-require 'httparty' #only necessary for external API access
+# require 'httparty' #only necessary for external API access
   # example for external hosting of API
   # url = '/api/users'
   # @users_data = HTTParty.get(URI.escape(url))

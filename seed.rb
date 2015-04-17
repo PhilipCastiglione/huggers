@@ -1,4 +1,4 @@
-require 'pry'
+# require 'pry'
 
 require_relative 'config'
 require_relative 'user'
