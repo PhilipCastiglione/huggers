@@ -22,6 +22,8 @@ header {
 
 header div.header-wrapper {
   margin: 1vh 1vw;
+  width: 98vw;
+  text-align: center;
 }
 
 header div.header-wrapper * {
@@ -29,10 +31,10 @@ header div.header-wrapper * {
   margin: 0;
   padding: 0;
   vertical-align: middle;
-  text-align: center;
 }
 
 header h1 {
+  width: 50vw;
   font-family: 'Lobster Two', cursive;
   font-size: 7vh;
   color: rgb(144,96,245);
@@ -41,6 +43,7 @@ header h1 {
 
 header img#menu-toggle {
   height: 13vh;
+  max-width: 20vw;
   cursor: pointer;
   margin: 0;
   margin-right: 1vw;
@@ -48,6 +51,7 @@ header img#menu-toggle {
 
 header a img#hearts {
   height: 13vh;
+  max-width: 20vw;
   margin: 0;
   margin-left: 1vw;
 }
@@ -111,7 +115,9 @@ main#splash {
 }
 
 main#splash h1 {
+  max-width: 95vw;
   margin: 0;
+  margin-left: 2.5vw;
   font-size: 6vh;
   padding-top: 20vh;
 }
@@ -204,6 +210,35 @@ main#join input {
 }
 
 main#join button {
+  background: none;
+  margin: 3vh 5vw;
+  padding: 2.5vh 5vw;
+  font-family: 'Lobster Two', cursive;
+  font-size: 6vh;
+  border: 3px solid rgb(144,96,245);
+  color: rgb(144,96,245);
+  text-decoration: underline;
+}
+
+/*EDIT*/
+main#edit {
+  min-height: 84vh;
+  background: rgb(255,225,255);
+  text-align: center;
+}
+
+main#edit p {
+  margin: 0;
+  padding-top: 4vh;
+  font-size: 4vh;
+}
+
+main#edit input {
+  margin: 1vh 0;
+  padding: 1vh 2vw;
+}
+
+main#edit button {
   background: none;
   margin: 3vh 5vw;
   padding: 2.5vh 5vw;
@@ -398,6 +433,19 @@ main#private-profile section#descriptive_content h3 {
 
 main#private-profile section#descriptive_content p {
   padding-bottom: 2vh;
+  margin-left: 2.5vw;
+  max-width: 95vw;
+}
+
+main#private-profile section#edit_profile button {
+  background: none;
+  margin: 2vh 5vw;
+  padding: 1vh 5vw;
+  font-family: 'Lobster Two', cursive;
+  font-size: 5vh;
+  border: 3px solid rgb(144,96,245);
+  color: rgb(144,96,245);
+  text-decoration: underline;
 }
 
 main#private-profile section#delete_profile h3 {

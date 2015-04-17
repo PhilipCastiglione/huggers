@@ -16,8 +16,6 @@ require_relative 'profile_photo'
 
 enable :sessions
 
-
-
 helpers do
   def logged_in?
     !!current_user
@@ -40,13 +38,11 @@ helpers do
   end
 end
 
-
-# db
 after do
   ActiveRecord::Base.connection.close
 end
 
-# huggers
+# SPLASH
 get '/' do
   if current_user.nil?
     erb :index
@@ -55,6 +51,12 @@ get '/' do
   end
 end
 
+# ABOUT
+get '/huggers/about' do
+  erb :about
+end
+
+# SESSIONS
 get '/session/new' do
   @retained_content = {}
   erb :login
@@ -77,6 +79,7 @@ get '/session/logout' do
   redirect to '/'
 end
 
+# NEW USER
 get '/users/new' do
   @retained_content = {}
   erb :new_user
@@ -98,7 +101,8 @@ post '/users' do
   end
 end
 
-post '/users/:user_id' do
+# EDIT USER
+post '/users/:user_id' do # from settings for email & password
   user = User.find_by(id: params[:user_id])
   user.email = params[:email]
   user.password = params[:password]
@@ -111,6 +115,31 @@ post '/users/:user_id' do
 
 end
 
+get '/users/:user_id/edit' do
+  validate_login
+  validate_current_user params[:user_id]
+
+  @retained_content = User.find_by(id: params[:user_id])
+
+  erb :edit_user
+end
+
+post '/users/:user_id/edit' do # from profile edit for flavour
+  user = User.find_by(id: params[:user_id])
+  
+  ['first_name','last_name','dob','gender','relationship','partner_user_id','location','description'].each do |attribute|
+    user[attribute] = params[attribute.to_sym]
+  end
+
+  if user.save
+    redirect to "/users/#{user.id}"
+  else
+    @retained_content = params
+    erb :edit_user
+  end
+end
+
+# DELETE USER
 post '/users/:user_id/delete' do
   user = User.find_by(id: params[:user_id])
   user.delete
@@ -119,11 +148,7 @@ post '/users/:user_id/delete' do
   redirect to '/'
 end
 
-get '/huggers/about' do
-  erb :about
-end
-
-# MM/Relationship
+# PROFILE PAGE
 get '/users/:user_id/profile' do
   redirect to "/users/#{params[:user_id]}"
 end
@@ -174,6 +199,7 @@ get '/users/:user_id/public' do
   end
 end
 
+# PHOTO GALLERY
 get '/users/:user_id/photos' do
   validate_login
 
@@ -181,6 +207,16 @@ get '/users/:user_id/photos' do
   erb :photos
 end
 
+# SETTINGS
+get '/users/:user_id/settings' do
+  validate_login
+  validate_current_user params[:user_id]
+
+  @user = User.find_by(id: params[:user_id])
+  erb :settings
+end
+
+# COMMUNITY, GAMES, FLIRTS
 get '/users/:user_id/community' do
   validate_login
   validate_current_user params[:user_id]
@@ -197,15 +233,15 @@ get '/users/:user_id/games' do
   erb :games
 end
 
-get '/users/:user_id/settings' do
+get '/users/:user_id/flirts' do
   validate_login
   validate_current_user params[:user_id]
 
   @user = User.find_by(id: params[:user_id])
-  erb :settings
+  erb :flirts
 end
 
-# MM
+# SEARCH & LIST
 get '/users/:user_id/search' do
   validate_login
   validate_current_user params[:user_id]
@@ -230,15 +266,7 @@ get '/users/:user_id/list' do
   end
 end
 
-get '/users/:user_id/flirts' do
-  validate_login
-  validate_current_user params[:user_id]
-
-  @user = User.find_by(id: params[:user_id])
-  erb :flirts
-end
-
-# Relationship
+# US
 get '/users/:user_id/us' do
   validate_login
   validate_current_user params[:user_id]

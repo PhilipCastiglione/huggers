@@ -1,0 +1,16 @@
+<main id="edit">
+  <form action="/users/<%= @retained_content["id"] %>/edit" method="post">
+    <p>
+      <input type="hidden" name="id" value="<%= @retained_content["id"] %>">
+      <input type="text" placeholder="first name" name="first_name" value="<%= @retained_content["first_name"] %>">
+      <input type="text" placeholder="last name" name="last_name" value="<%= @retained_content["last_name"] %>">
+      <input type="text" placeholder="date of birth" name="dob" value="<%= @retained_content["dob"] %>">
+      <input type="text" placeholder="gender" name="gender" value="<%= @retained_content["gender"] %>">
+      <input type="text" placeholder="relationship status" name="relationship" value="<%= @retained_content["relationship"] %>">
+      <input type="text" placeholder="*partner hugger id" name="partner_user_id" value="<%= @retained_content["partner_user_id"] %>">
+      <input type="text" placeholder="location" name="location" value="<%= @retained_content["location"] %>">
+      <input type="text" placeholder="description" name="description" value="<%= @retained_content["description"] %>">
+    </p>
+    <button>Edit</button>
+  </form>
+</main>

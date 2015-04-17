@@ -25,6 +25,11 @@
     <h3>Describe Yourself</h3>
     <p><%= @user.description %></p>
   </section>
+  <section id="edit_profile">
+    <form id="form_edit" action="/users/<%=@user.id%>/edit" method="get">
+      <button>Edit Profile</button>
+    </form>
+  </section>
   <section id="delete_profile">
     <h3>Delete Profile</h3>
     <form id="form_delete" action="/users/<%=@user.id%>/delete" method="post">
